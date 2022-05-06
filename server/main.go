@@ -25,7 +25,6 @@ func main() {
 	service := controllers.HelloServiceServer{}
 
 	pb.RegisterGreeterServer(grpcServer, &service)
-	// pb.RegisterHelloServiceServer(grpcServer, &service)
 
 	go func() {
 		if err := grpcServer.Serve(listener); err != nil {
@@ -33,7 +32,13 @@ func main() {
 		}
 	}()
 
+	fmt.Printf("Server started on port :%s\n", "50051")
+
 	c := make(chan os.Signal)
+	fmt.Printf("Waiting for SIGINT...\n")
 	signal.Notify(c, os.Interrupt)
+	fmt.Printf("Got SIGINT\n")
 	<-c
+
+	fmt.Printf("\nStopping the server...\n")
 }

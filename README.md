@@ -11,3 +11,21 @@
 ```go
     go run .server/main
 ```
+
+# Running with Evans or Postman
+
+```bash
+    yay -S evans
+```
+
+```bash
+    evans -r repl
+```
+```bash
+    call SayHello
+```
+
+
+```https
+    https://blog.postman.com/postman-now-supports-grpc/
+```
